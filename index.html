@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="QuickCommit: Streamline your development process with our web app that generates ready-to-use commit messages. Simply copy, paste, and commit. Perfect for teams looking to boost productivity and maintain clean, organized repositories.">
+    <title>QuickCommit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <form id="commit-form">
+                        <div class="input-group">
+                            <label for="ticketName">Ticket Name</label>
+                            <input type="text" placeholder="eg. Bug Fixes and Optimisation" name="ticketTitle" id="ticketName">
+                        </div>
+        
+                        <div class="input-group">
+                            <label for="versionCode">Package Version Code</label>
+                            <input type="number" name="versionCode" id="versionCode" min="0">
+                        </div>
+        
+                        <div class="input-group">
+                            <label for="updates">Updates</label>
+                            <textarea name="updates" id="updates" cols="30" rows="10" value="- "></textarea>
+                        </div>
+        
+                        <div class="input-group">
+                            <label for="tickets">Tickets</label>
+                            <input type="text" id="tickets" placeholder="Enter Ticket numbers seperated by ," name="tickets">
+                        </div>
+        
+                        <fieldset>
+                            <legend>Have Build Generated?</legend>
+                            <label for="positiveChoice">
+                                <input type="radio" name="hasBuild" id="positiveChoice" value="Yes">
+                                <span>Yes</span>
+                            </label>
+                            <label for="negativeChoice">
+                                <input type="radio" name="hasBuild" id="negativeChoice" value="No">
+                                <span>No</span>
+                            </label>
+                        </fieldset>
+        
+                        
+                        <div class="input-group" style="display: none;">
+                            <label for="buildUrl">Build URL</label>
+                            <input type="url" id="buildUrl" placeholder="eg. https://nextcloud.xlayerinfra.com/agrbczfgkagfajhd1" name="buildUrl">
+                        </div>
+                        <button type="submit">Generate Commit Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <textarea name="" id="output" cols="30" rows="20"></textarea>
+            <button id="copyButton">Copy</button>
+        </div>
+    </div>
+
+</body>
+<script src="assets/js/main.js" defer></script>
+
+</html>

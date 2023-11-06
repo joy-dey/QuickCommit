@@ -1,0 +1,119 @@
+:root {
+  --primary-color: #3e1e69;
+  --background-color: #ece9f0;
+  --card-background-color: #ffffff;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+}
+
+.row {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.row .col:first-child {
+  flex: 0 0 33%;
+}
+.row .col:last-child {
+  flex: 0 0 67%;
+  position: relative;
+}
+.row .col:last-child textarea {
+  width: calc(100% - 2.25rem);
+  height: calc(100% - 2rem);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.row .col:last-child #copyButton {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .col {
+    flex: 0 0 100% !important;
+  }
+}
+.card {
+  background-color: var(--card-background-color);
+  width: 100%;
+  max-width: 30rem;
+  border-radius: 0.5rem;
+}
+.card .card-body {
+  padding: 1.5rem;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--card-background-color);
+  border: 0;
+  outline: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #612fa5;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+form .input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+form .input-group label {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+form .input-group:focus-within label {
+  color: var(--primary-color);
+}
+form fieldset {
+  width: 95%;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.25);
+}
+form fieldset legend {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+form fieldset label {
+  cursor: pointer;
+}
+form input:not([type=radio]), form textarea {
+  padding: 0.75rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+form input:not([type=radio]):focus, form textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(62, 30, 105, 0.25);
+}
+form button {
+  width: 100%;
+}
+
+/*# sourceMappingURL=main.css.map */
