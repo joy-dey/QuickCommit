@@ -21,32 +21,32 @@
                     <form id="commit-form">
                         <div class="input-group">
                             <label for="ticketName">Ticket Name</label>
-                            <input type="text" placeholder="eg. Bug Fixes and Optimisation" name="ticketTitle" id="ticketName">
+                            <input type="text" placeholder="eg. Bug Fixes and Optimisation" name="ticketTitle" id="ticketName" required>
                         </div>
         
                         <div class="input-group">
                             <label for="versionCode">Package Version Code</label>
-                            <input type="number" name="versionCode" id="versionCode" min="0">
+                            <input type="number" name="versionCode" id="versionCode" min="0" required>
                         </div>
         
                         <div class="input-group">
                             <label for="updates">Updates</label>
-                            <textarea name="updates" id="updates" cols="30" rows="10" value="- "></textarea>
+                            <textarea name="updates" id="updates" cols="30" rows="10" value="- " required></textarea>
                         </div>
         
                         <div class="input-group">
                             <label for="tickets">Tickets</label>
-                            <input type="text" id="tickets" placeholder="Enter Ticket numbers seperated by ," name="tickets">
+                            <input type="text" id="tickets" placeholder="Enter Ticket numbers seperated by ," name="tickets" required pattern="\d+(?:,\d+)?">
                         </div>
         
                         <fieldset>
                             <legend>Have Build Generated?</legend>
                             <label for="positiveChoice">
-                                <input type="radio" name="hasBuild" id="positiveChoice" value="Yes">
+                                <input type="radio" name="hasBuild" id="positiveChoice" value="Yes" required>
                                 <span>Yes</span>
                             </label>
                             <label for="negativeChoice">
-                                <input type="radio" name="hasBuild" id="negativeChoice" value="No">
+                                <input type="radio" name="hasBuild" id="negativeChoice" value="No" required>
                                 <span>No</span>
                             </label>
                         </fieldset>

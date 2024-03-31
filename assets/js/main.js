@@ -38,9 +38,17 @@ COPY_BUTTON.addEventListener('click', function() {
     })
 })
 
+function formatString(inputString) {
+    let cleanString = inputString.replace(/[^\w\s]/g, ''),
+        formattedString = cleanString.trim().replace(/\s+/g, '-').toLowerCase();
+    return formattedString;
+}
+
 function processData(data) {
     const DATE_REF = new Date();
-    let TICKET_NAME = `TULEAP-${data.tickets.split(',')[0]}-${data.ticketTitle.toLowerCase().split(' ').join('-')}`,
+    let sanitizedTicketName = formatString(data.ticketTitle),
+        ticketNameBlocks = sanitizedTicketName.toLowerCase().split(' ').join('-');
+    let TICKET_NAME = `TULEAP-${data.tickets.split(',')[0]}-${ticketNameBlocks}`,
         VERSION_CODE = `${DATE_REF.getFullYear()}.${DATE_REF.getMonth()+1}.${DATE_REF.getDate()}+${data.versionCode}`,
         UPDATES = data.updates,
         TICKETS = [];
@@ -48,7 +56,7 @@ function processData(data) {
     
     data.tickets.split(',').forEach(ticket => {
         TICKETS.push(`TULEAP-${ticket}`);
-        LINKS += `https://tuleap.xlayerinfra.com/plugins/trackers/?aid=${ticket}\n`
+        LINKS += `https://tuleap.xlayerinfra.com/plugins/tracker/?aid=${ticket}\n`
     });
 
     return {
@@ -78,6 +86,6 @@ Ticket Links:
 ${data.ticketLinks}
 
 Build URL:
-${data.buildUrl}
+${data.buildUrl || 'NA'}
 `
 }
